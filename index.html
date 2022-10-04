@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Document</title>
+        <link href="estilo.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    </head>
+    <body>
+        <main>
+            <!-- https://search.google.com/test/rich-results Rich Snippets Testing Tool -->
+            <!-- Capa oculta de informacion de cada sede -->
+            <div id="eu-map-info-container">
+                <div itemscope itemtype="https://schema.org/Business" class="eu-map-info">
+                    <div class="eu-map-info-close">
+                        <img src="img/cruz-close.svg" alt="closing modal window icon"/>
+                    </div>
+                    <div class="eu-flag-country">
+                        <div id="eu-info-data-flag">
+</div>
+                        <div class="eu-flag-country-texts">
+                            <h5 id="eu-info-data-country" itemprop="country"></h5>
+                            <h6 id="eu-info-data-organization" itemprop="organization"></h6>
+                        </div>
+                    </div>
+                    <div itemprop="address" class="eu-map-info-data">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <address id="eu-info-data-address"></address>
+                    </div>
+                    <div class="eu-map-info-data"><i class="fa-solid fa-phone"></i>
+                        <p id="eu-info-data-Phone" itemprop="telephone"></p>
+                    </div>
+                    <div class="eu-map-info-data"><i class="fa-solid fa-user"></i>
+                        <p id="eu-info-data-Contact" itemprop="contact-person"></p>
+                    </div>
+                    <div class="eu-map-info-data"><i class="fa-solid fa-envelope"></i>
+                        <p itemprop="email"> <a id="eu-info-data-Email" href="mailto:aileegan@membra.com.my"></a> </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pines correspondientes a cada sede en el mapamundi -->
+            <div id="mapamundi">
+                <!-- 1 - SEDES PRINCIPALES -->
+                <!-- 1 - AUSTRALIA -->
+                <div id="pinAustralia" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>Australia</h6>
+                </div>
+                <!-- 2 - SPAIN -->
+                <div id="pinSpain" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>Spain</h6>
+                </div>
+                <!-- 3 - FRANCE -->
+                <div id="pinFrance" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>France</h6>
+                </div>
+                <!-- 4 - GERMANY -->
+                <div id="pinGermany" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>Germany</h6>
+                </div>
+                <!-- 5 - USA -->
+                <div id="pinUsa" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>USA</h6>
+                </div>
+                <!-- 6 - CHINA -->
+                <div id="pinChina" class="cont-pins">
+                    <img src="img/pin-mapaPrincipal.svg" alt="pin icon position on map"/>
+                    <h6>China</h6>
+                </div>
+                <!-- 2 - SUBSEDES -->
+                <!-- 7 - Mexico -->
+                <div id="pinMexico" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 8 - Brasil -->
+                <div id="pinBrasil" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 9 - Chile -->
+                <div id="pinChile" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 10 - Argentina -->
+                <div id="pinArgentina" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 11 - Egypt -->
+                <div id="pinEgypt" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 12 - SouthAfrica -->
+                <div id="pinSouthAfrica" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 13 - SouthKorea -->
+                <div id="pinSouthKorea" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 14 - Japan -->
+                <div id="pinJapan" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 15 - Taiwan -->
+                <div id="pinTaiwan" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 16 - Filipinas -->
+                <div id="pinFilipinas" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 17 - Vietnam -->
+                <div id="pinVietnam" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 18 - Thailand -->
+                <div id="pinThailand" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 19 - Malasia -->
+                <div id="pinMalasia" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- 20 - India -->
+                <div id="pinIndia" class="cont-pins-secondary">
+                    <img src="img/pin-mapaSecundari.svg" alt="pin icon position on map secondary"/>
+                </div>
+                <!-- Mapa fondo -->
+                <img src="img/mapaPuntsBlancs.svg" alt="mapamundi por puntos"/>
+            </div>
+        </main>
+        <script src="js/db.js"></script>
+        <script src="js/map.js"></script>
+    </body>
+</html>

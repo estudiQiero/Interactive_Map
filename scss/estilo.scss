@@ -1,0 +1,518 @@
+// Reset de Josh Comeau adaptado por Miq
+// v. 1.1
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    border: 0;
+}
+
+html,
+body {
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+// Código Mapamundi -----------------------
+// Variable de color
+$verdeMuyClaro: #e6ecdb;
+$grisTextes: rgb(59, 59, 59);
+$grisSuau: rgba(211, 211, 211, 0.51);
+
+body {
+    background-color: $verdeMuyClaro;
+    position: relative;
+}
+
+// Código Ventana Mapamundi
+main {
+    background-color: $verdeMuyClaro;
+    height: auto;
+    width: 100%;
+    min-height: 500px;
+
+    // Variable base para texto
+    --text-multiplier: 1;
+    position: relative;
+
+    #eu-map-info-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // background-color: rgba(255, 255, 255, 0.800);
+        background-color: #09612eba;
+        z-index: 1;
+        display: block;
+
+        .eu-map-info {
+            position: relative;
+            height: auto;
+            width: 320px;
+            padding: 0;
+            background-color: #fff;
+            -webkit-box-shadow: 0px 3px 26px -7px rgba(0, 0, 0, 0.90);
+            -moz-box-shadow: 0px 3px 26px -7px rgba(0, 0, 0, 0.90);
+            box-shadow: 0px 3px 26px -7px rgba(0, 0, 0, 0.90);
+
+            border: {
+                color: $grisTextes;
+                width: 2px;
+                style: solid;
+                top-left-radius: 8px;
+                bottom-left-radius: 6px;
+                bottom-right-radius: 6px;
+                top-right-radius: 26px;
+            }
+
+            .eu-map-info-close {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: #585858;
+                transition: .25s all ease-in-out;
+                cursor: pointer !important;
+
+                &:hover {
+                    background-color: #97090e;
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    transition: .25s all ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .eu-flag-country {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 1.5rem;
+                background-color: $grisTextes;
+
+                border: {
+                    top-left-radius: 6px;
+                    top-right-radius: 20px;
+                    bottom-left-radius: 0;
+                    bottom-right-radius: 0;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 1em 0 0;
+                }
+
+                .eu-flag-country-texts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+
+                    h5 {
+                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                        // enlazado con main --text-multiplier y @medias
+                        font-size: calc(2em * var(--text-multiplier));
+                        text-align: left;
+                        color: #fff;
+                        margin-bottom: 0;
+                        line-height: 1.2em;
+                    }
+
+                    h6 {
+                        font-family: Arial, sans-serif;
+
+                        // enlazado con main --text-multiplier y @medias
+                        font-size: calc(1.5em * var(--text-multiplier));
+                        font-weight: 300;
+                        text-align: left;
+                        color: #fff;
+                        margin-bottom: 0;
+                        line-height: 1.2em;
+                    }
+                }
+            }
+
+            .eu-map-info-data {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0;
+                border-bottom: solid $grisSuau 1px;
+                background-color: $grisSuau;
+
+                &:last-child {
+                    border-bottom: solid $grisSuau 0;
+                }
+
+                i {
+                    height: 100%;
+                    width: 12%;
+                }
+
+                .fa-solid {
+                    font-weight: 900;
+                    font-size: 1.3em;
+                    color: $grisTextes;
+                    width: 20%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:last-child {
+                        border: {
+                            top-left-radius: 0;
+                            top-right-radius: 0;
+                            bottom-left-radius: 6px;
+                            bottom-right-radius: 0;
+                        }
+                    }
+                }
+
+                p,
+                address {
+                    height: 100%;
+                    width: 88%;
+                    font-family: Arial, sans-serif;
+                    color: $grisTextes;
+
+                    // enlazado con main --text-multiplier y @medias
+                    font-size: calc(1.4em * var(--text-multiplier));
+                    text-align: left;
+                    font-style: normal;
+                    line-height: 2rem;
+                    padding: 2rem;
+                    background-color: #fff;
+
+                    &:last-child {
+                        border: {
+                            top-left-radius: 0;
+                            top-right-radius: 0;
+                            bottom-left-radius: 0;
+                            bottom-right-radius: 6px;
+                        }
+                    }
+                }
+
+                a {
+                    color: #09612d;
+                }
+            }
+        }
+    }
+
+    #mapamundi {
+        position: relative;
+        height: 100%;
+        width: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $verdeMuyClaro;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        .cls-1 {
+            fill: #fff;
+        }
+
+        .cls-2,
+        .cls-3 {
+            fill: #8aa512;
+        }
+
+        .cls-4 {
+            fill: #c6c6c6;
+        }
+
+        .cls-5 {
+            fill: #09612d;
+        }
+
+        .cls-3 {
+            fill-rule: evenodd;
+        }
+
+        .cont-pins {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            height: 15%;
+            align-items: center;
+            transition: .25s all ease-in-out;
+            position: absolute;
+            max-height: 90px;
+            cursor: pointer !important;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            img {
+                height: 76%;
+                width: auto;
+                display: block;
+                margin-bottom: 0.4em;
+            }
+
+            h6 {
+                width: fit-content;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                // enlazado con main --text-multiplier y @medias
+                font-size: calc(.8em * var(--text-multiplier));
+                text-align: center;
+                text-transform: uppercase;
+                color: white;
+                padding: .2em .8em;
+                background-color: #8aa512;
+                border-radius: 200px;
+            }
+
+            // Sedes Principales
+            &#pinAustralia {
+                left: 81%;
+                top: 68%;
+            }
+
+            &#pinSpain {
+                left: 41%;
+                top: 33%;
+            }
+
+            &#pinFrance {
+                left: 45%;
+                top: 28%;
+            }
+
+            &#pinGermany {
+                left: 50%;
+                top: 24%;
+            }
+
+            &#pinUsa {
+                left: 17%;
+                top: 31%;
+            }
+
+            &#pinChina {
+                left: 74%;
+                top: 31%;
+            }
+        }
+
+        .cont-pins-secondary {
+            width: auto;
+            height: 10%;
+            align-items: center;
+            transition: .25s all ease-in-out;
+            position: absolute;
+            max-height: 70px;
+            cursor: pointer !important;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+
+            img {
+                height: 76%;
+                width: auto;
+                display: block;
+            }
+
+            // Sedes Secundarias
+            &#pinMexico {
+                left: 18%;
+                top: 49%;
+            }
+
+            &#pinBrasil {
+                left: 32%;
+                top: 68%;
+            }
+
+            &#pinChile {
+                left: 26%;
+                top: 74%;
+            }
+
+            &#pinArgentina {
+                left: 28%;
+                top: 80%;
+            }
+
+            &#pinEgypt {
+                left: 53%;
+                top: 47%;
+            }
+
+            &#pinSouthAfrica {
+                left: 52%;
+                top: 76%;
+                display: none;
+            }
+
+            &#pinSouthKorea {
+                left: 85%;
+                top: 35%;
+            }
+
+            &#pinJapan {
+                left: 89%;
+                top: 34%;
+            }
+
+            &#pinTaiwan {
+                left: 82%;
+                top: 41%;
+                display: none;
+            }
+
+            &#pinFilipinas {
+                left: 80.3%;
+                top: 53%;
+            }
+
+            &#pinVietnam {
+                left: 75.6%;
+                top: 53%;
+            }
+
+            &#pinThailand {
+                left: 72.5%;
+                top: 50%;
+            }
+
+            &#pinMalasia {
+                left: 74%;
+                top: 59%;
+            }
+
+            &#pinIndia {
+                left: 67.7%;
+                top: 47%;
+            }
+        }
+    }
+}
+
+@media (min-width: 48rem) {
+    main {
+        --text-multiplier: 1.1;
+        min-height: unset;
+
+        #eu-map-info-container {
+            .eu-map-info {
+                width: 60%;
+                max-width: 450px;
+
+                .eu-map-info-data {
+                    i {
+                        width: 6%;
+                    }
+
+                    .fa-solid {
+                        font-size: 1.6em;
+                        text-align: center;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    p,
+                    address {
+                        width: 94%;
+                    }
+                }
+            }
+        }
+
+        #mapamundi {
+            height: 100%;
+            width: 80% !important;
+        }
+    }
+}
+
+@media (min-width: 64rem) {
+    main {
+        --text-multiplier: 1.15;
+    }
+}
+
+@media (min-width: 80rem) {
+    main {
+        --text-multiplier: 1.2;
+    }
+}
