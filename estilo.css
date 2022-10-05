@@ -84,7 +84,7 @@ main #eu-map-info-container {
   align-items: center;
   background-color: #09612eba;
   z-index: 1;
-  display: block;
+  display: none;
 }
 
 main #eu-map-info-container .eu-map-info {
